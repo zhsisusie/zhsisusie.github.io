@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="../style.css">
+	<style type="text/css">
+		.flex-container{display: flex; height: 100%; justify-content: space-between; border: 1px solid black;}
+		.flex-item{width: 150px; border: 1px solid red;}
+		.item1 {height: 120px;}
+		.item2 {height: 100px;}
+		.item3 {height: 40px;}
+		.item4 {height: 200px;}
+		@media screen and (min-width: 640px) {
+			.flex-container{flex-flow: row nowrap; align-items: center;}
+		}
+		@media screen and (max-width: 640px) {
+			.flex-container{flex-flow: row wrap; align-items: flex-start;}
+			.flex-item{order: 2;}
+			.item4{order: 1; }
+		}
+		
+	</style>
+</head>
+<body>
+	<div class="container">
+		<ul class="flex-container">
+			<li class="flex-item item1"></li>
+			<li class="flex-item item2"></li>
+			<li class="flex-item item3"></li>
+			<li class="flex-item item4"></li>
+		</ul>
+	</div>
+</body>
+</html>
