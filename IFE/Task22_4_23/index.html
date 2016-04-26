@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Javascript Tree</title>
+	<link rel="stylesheet" href="../style.css">
+	<style type="text/css">
+		.container div{position: relative;box-sizing: border-box;overflow: hidden;padding: 20px;border:1px solid darkgreen;}
+		#one{width: 600px; height: 200px; margin: 20px;}
+		#one div{display: inline-block;}
+		#one .l2{display: inline-block; width: 270px; height: 160px;}
+		#one #two{margin-right: 10px;}
+		.l3{width: 105px;height: 120px;}
+		#two #four{margin-right: 10px;}
+		#three #six{margin-right: 10px;}
+		.container .l4{width: 20px;height: 80px;padding: 0;}
+		#eight, #ten, #twelve, #fourten{margin-right: 10px;}
+		.container .btn{border: none;}
+		.btn a{display: inline-block; width: 100px; height: 40px; line-height: 40px;text-align:center; text-decoration: none;color: black; color: darkgreen; font-size: 18px;border-radius: 5px; margin-right: 20px;border: 1px solid darkgreen;}
+		.btn a:hover{background: darkgreen; color: #fff;}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div id="one">
+			<div id="two" class="l2">
+				<div id="four" class="l3">
+					<div id="eight" class="l4"></div>
+					<div id="nine" class="l4"></div>
+				</div>
+				<div id="five" class="l3">
+					<div id="ten" class="l4"></div>
+					<div id="eleven" class="l4"></div>
+				</div>
+			</div>
+			<div id="three" class="l2">
+				<div id="six" class="l3">
+					<div id="twelve" class="l4"></div>
+					<div id="thirteen" class="l4"></div>
+				</div>
+				<div id="seven" class="l3">
+					<div id="fourten" class="l4"></div>
+					<div id="fiften" class="l4"></div>
+				</div>
+			</div>
+		</div>
+		<div class="btn">
+			<a href="" id="dfs">DFS</a>
+			<a href="" id="bfs">BFS</a>
+		</div>
+	</div>
+	<script type="text/javascript">
+		function Node(data) {
+			this.data = data;
+			this.parent = null;
+			this.children = [];
+		}
+		function Tree(data) {
+			var node = new Node(data);
+			this._root = node;
+		}
+		Tree.prototype.traverseDF = function(callback) {
+			(function traverse(currentNode) {
+					var i,len;
+					var children = currentNode.children;
+					callback(currentNode);
+					for(i=0,len = children.length;i<len;i++) {
+							traverse(children[i]);	
+					}
+				
+			})(this._root);
+		}
+
+		Tree.prototype.traverseBF = function(callback) {
+			var queue = [],
+			    i,
+			    len;
+			queue.push(this._root);
+			while(queue.length) {
+				var cur = queue.shift();
+				callback(cur);
+				for(i=0,len = cur.children.length; i < len;i++) {
+					queue.push(cur.children[i]);
+				}
+				
+				
+			}
+		}
+		Tree.prototype.contains = function(callback, traversal) {
+			traversal.call(this, callback);
+		}
+		Tree.prototype.add = function(data, toData, traversal) {
+			var child = new Node(data),
+			    parent = null,
+			    callback = function(node) {
+			    	if(node.data === toData) {
+			    		parent = node;
+			    	}
+			    }
+			this.contains(callback, traversal);
+			if(parent) {
+				parent.children.push(child);
+				child.parent = parent;
+			}else {
+				throw new Error('cannot add node to an unexist parent');
+			}
+		}
+		Tree.prototype.remove = function(data, fromData, traversal) {
+			var tree = this,
+				parent = null,
+				childToRemove = null,
+				i,len,children,
+				index;
+
+			var	callback = function(node) {
+					if(node.data === fromData) {
+						parent = node;
+					}
+				}
+			this.contains(callback, traversal);
+			if(parent) {
+				index = findIndex(parent.children, data);
+				console.log(index);
+				if(index === undefined) {
+					throw new Error("Node to remove does not exist");
+				}else {
+					childToRemove = parent.children.splice(index, 1);
+				}
+			}
+			console.log(childToRemove);
+			return childToRemove;
+		}
+		function findIndex(arr, data){
+			var i=0,
+				len = arr.length,
+				index;
+			for(;i<len;i++) {
+				if(arr[i].data === data) {
+					index = i;
+				}
+			}
+			return index;
+		}
+		var tree = new Tree('one');
+
+		tree._root.children.push(new Node('two'));
+		tree._root.children[0].parent = tree;
+		tree._root.children.push(new Node('three'));
+		tree._root.children[1].parent = tree;
+
+		tree._root.children[0].children.push(new Node('four'));
+		tree._root.children[0].children[0].parent = tree._root.children[0];
+		tree._root.children[0].children.push(new Node('five'));
+		tree._root.children[0].children[1].parent = tree._root.children[0];
+
+		tree._root.children[1].children.push(new Node('six'));
+		tree._root.children[1].children[0].parent = tree._root.children[1];
+		tree._root.children[1].children.push(new Node('seven'));
+		tree._root.children[1].children[1].parent = tree._root.children[1];
+		tree.add("eight","four", tree.traverseBF);
+		tree.add("nine","four", tree.traverseBF);
+		tree.add("ten","five", tree.traverseBF);
+		tree.add("eleven","five", tree.traverseBF);
+		tree.add("twelve","six", tree.traverseBF);
+		tree.add("thirteen","six", tree.traverseBF);
+		tree.add("fourten","seven", tree.traverseBF);
+		tree.add("fiften","seven", tree.traverseBF);
+		var arr = [],
+			t = null;
+		function animation(arr) {
+			clearInterval(t);
+			var i=0;
+			t = setInterval(function(){
+				if(i>0) {
+					console.log(i);
+					arr[i-1].style.background = "#fff";
+				}
+				if(i === arr.length) {
+					clearInterval(t);
+				}else {
+					arr[i].style.background = "red";
+					i++;
+				}
+			}, 1000);
+		}
+		tree.traverseDF(function(node) {
+			var id = node.data,
+				element = document.getElementById(id);
+			arr.push(element);
+		});
+		animation(arr);
+	</script>
+</body>
+</html>
