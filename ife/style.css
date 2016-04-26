@@ -1,0 +1,43 @@
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+html, body {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+a{
+	text-decoration: none;
+}
+input:focus{
+	outline: none;
+}
+
+.container{
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+.container .btn{
+	position: relative;
+	width: 1180px;
+	margin: 10px auto;
+}
+.btn .traverseBtn{
+	display: inline-block;
+	width: 100px;
+	height: 35px;
+	line-height: 35px;
+	text-align: center;
+	font-size: 18px;
+	color: darkgreen;
+	cursor: pointer;
+	border: 1px solid darkgreen;
+	border-radius: 5px;
+}
+.btn .traverseBtn:hover {
+	background: darkgreen;
+	color: #fff;
+}
