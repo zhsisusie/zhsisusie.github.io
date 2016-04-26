@@ -66,9 +66,7 @@
 				var elem = document.createElement('div');
 				elem.id = key;
 				parentElement.appendChild(elem);
-				var p = document.createElement("p");
-				p.innerText = key;
-				elem.appendChild(p);
+				elem.innerText = key;
 				if(data[key]) {
 					renderTree(data[key], elem);
 				}
@@ -91,36 +89,35 @@
 		dfsBtn = document.getElementById("dfsBtn"),
 		//广度遍历
 		bfsBtn = document.getElementById("bfsBtn"),
-		input = document.getElementById("method");
+		input = document.getElementById("method"),
+		searchFlag = false;//区分当前是在遍历还是在搜索
 	function animation(arr, callback) {
 		bgInit(root);
 		clearInterval(t);
 		var i = 0, flag = false;
 		t = setInterval(function() {
-			if(callback) {
-				flag = callback(arr[i]);
-			}
 			if(i > 0) {
-				var p1 = arr[i-1].getElementsByTagName('p')[0];
 				arr[i-1].style.background = "#fff";
-				p1.style.background = "#fff";
-				p1.style.color = "darkgreen";
+			}
+			if(callback) {
+				if(arr[i]) {
+					flag = callback(arr[i]);
+				}
 			}
 			if(i === arr.length) {
 				clearInterval(t);
+				if(searchFlag) {
+					alert("未找到元素");
+				}
 			}else {
-				var p2 = arr[i].getElementsByTagName('p')[0];
 				if(flag) {
 					arr[i].style.background = "blue";
-					p2.style.background = "blue";
-					p2.style.color = "#fff";
 				}else {
 					arr[i].style.background = "red";
-					p2.style.background = "red";
-					p2.style.color = "#fff";
 				}
 				i++;
 			}
+			
 			
 
 		}, 500);
@@ -128,13 +125,10 @@
 	
 	function traverseDF(root, arrDfs) {
 		arrDfs.push(root);
-		var children = root.childNodes,
+		var children = root.children,
 			i,len;
 		for(i=0, len = children.length; i < len; i++) {
-			if(children[i].tagName !== 'P'){
-				traverseDF(children[i], arrDfs);
-			}
-			
+			traverseDF(children[i], arrDfs);
 		}
 	}
 	function traverseBF(root, arrBfs) {
@@ -148,60 +142,66 @@
 		while(queue.length > 0) {
 			elem = queue.shift();
 			arrBfs.push(elem);
-			children = elem.childNodes;
+			children = elem.children;
 			for(i=0,len = children.length;i < len; i++) {
-				if(children[i].tagName !== 'P') {
-					queue.push(children[i]);
-				}
-				
+				queue.push(children[i]);
 			}
 		}
 	}
 	function preOrder(root, arr) {
 		arr.push(root);
-		var children = root.childNodes,
+		var children = root.children,
 			i,
 			len;
 		for(i = 0, len = children.length; i < len; i++) {
-			if(children[i].tagName !== 'P') {
-				preOrder(children[i], arr);
-			}
+			preOrder(children[i], arr);
 		}
 	}
 	function postOrder(root, arr) {
-		var children = root.childNodes,
+		var children = root.children,
 			i,
 			len;
 		if(!children) {
 			return;
 		}
 		for(i=0, len = children.length; i < len; i++) {
-			if(children[i].tagName !== 'P') {
-				postOrder(children[i], arr);
-				arr.push(children[i]);
-			}
-			
+			postOrder(children[i], arr);
+			arr.push(children[i]);
 		}
 	}
-	traverseDF(root, arrDfs);
-	traverseBF(root, arrBfs);
-	preOrder(root, preArr);
-	postOrder(root, postArr);
-	postArr.push(root);
+	// traverseDF(root, arrDfs);
+	// traverseBF(root, arrBfs);
+	// preOrder(root, preArr);
+	// postOrder(root, postArr);
+	// postArr.push(root);
 	addEvent(preBtn, "click", function() {
+		preArr = [];
+		searchFlag = false;;
+		preOrder(root, preArr);
 		animation(preArr);
 	});
 	addEvent(postBtn, "click", function() {
+		postArr = [];
+		searchFlag = false;
+		postOrder(root, postArr);
+		postArr.push(root);
 		animation(postArr);
 	});
 	addEvent(dfsBtn, "click", function() {
+		searchFlag = false;
+		traverseDF(root, arrDfs);
 		animation(arrDfs);
 	});
 	addEvent(bfsBtn, "click", function() {
+		searchFlag = false;
+		traverseBF(root, arrBfs);
 		animation(arrBfs);
 	});
 	addEvent($("preSearch"), "click", function() {
-		animation(arrBfs, function(curElem) {
+		searchFlag = true;
+		preArr = [];
+		preOrder(root, preArr);
+		animation(preArr, function(curElem) {
 			var id = input.value;
 			if(curElem.id === id) {
 				clearInterval(t);
@@ -212,7 +212,10 @@
 		});
 	});
 	addEvent($("postSearch"), "click", function() {
-		animation(preArr, function(curElem) {
+		postArr = [];
+		postOrder(root, postArr);
+		searchFlag = true;
+		animation(postArr, function(curElem) {
 			var id = input.value;
 			if(curElem.id === id) {
 				clearInterval(t);
@@ -248,10 +251,12 @@
 		if(!elemSelected) {
 			return;
 		}else {
+			elemSelected.style.background = "#fff";
 			var value = input.value;
-			var p = document.createElement(p);
-			p.innerText = value;
-			elemSelected.appendChild(p);
+			var div = document.createElement("div");
+			div.innerText = value;
+			div.style.cssText = "flex: 1; border: 1px solid darkgreen;height: 100%;"
+			elemSelected.appendChild(div);
 		}
 	})
 
