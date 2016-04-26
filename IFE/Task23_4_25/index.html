@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Javascript和树(二)</title>
+	<link rel="stylesheet" href="../style.css">
+	<style type="text/css">
+		#root{
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+			position: relative;
+			height: 360px;
+			width: 1180px;
+			margin: 20px auto;
+			border: 1px solid black;
+		}
+		#root div{
+			position: relative;
+			border: 1px solid darkgreen;
+		}
+		p {
+			position: absolute;
+			left: 0;
+			top: 0;
+			color: darkgreen;
+			font-size: 12px;
+		}
+		#a{
+			display: flex;
+			flex-direction: row;
+			width: 500px;
+			height: 300px;
+			justify-content: space-around;
+			align-items: center;
+		}
+		#a #a1{
+			display: flex;
+			width: 200px;
+			height: 250px;
+		}
+		#a #a2{
+			display: flex;
+			width: 200px;
+			height: 250px;
+			/*height: 500px;*/
+		}
+		#b{
+			display: flex;
+			width: 600px;
+			height: 300px;
+			justify-content: space-around;
+			align-items: center;
+		}
+		#b #b1{
+			display: flex;
+			width: 250px;
+			height: 260px;
+			justify-content: space-around;
+			align-items: center;
+		}
+		#b #b2{
+			display: flex;
+			width: 250px;
+			height: 260px;
+			justify-content: space-around;
+			align-items: center;
+		}
+		#b #b1_1, #b #b1_2, #b #b1_3{
+			width: 70px;
+			height: 220px;
+		}
+		#b #b1_3 {
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+		}
+		#b1_3 #b1_3_1{
+			width: 40px;
+			height: 180px;
+		}
+		#b2 #b2_1,#b #b2_2{
+			width: 100px;
+			height: 220px;
+		}
+		#method {
+			height: 23px;
+			line-height: 23px;
+			padding: 5px;
+			color: darkgreen;
+			border: 1px solid darkgreen;
+			border-radius: 5px;
+			background: #eee;
+		}
+	</style>
+</head>
+<body>
+	<div class="container" id="container">
+		<div class="btn">
+			<a class="traverseBtn" id="preBtn">先序遍历</a>
+			<a class="traverseBtn" id="postBtn">后序遍历</a>
+			<a class="traverseBtn" id="dfsBtn">深度优先</a>
+			<a class="traverseBtn" id="bfsBtn">广度优先</a>
+			<input type="text" id="method">
+			<a class="traverseBtn" id="preSearch">先序搜索</a>
+			<a class="traverseBtn" id="postSearch">后序搜索</a>
+		</div>
+	</div>
+	<script type="text/javascript" src="script.js"></script>
+</body>
+</html>
