@@ -1,0 +1,308 @@
+.c_background {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-size: 100% 100%;
+}
+.c_background_top {
+	width: 100%;
+	height: 71.6%;
+	background-image: url("images/background/c_background_top.png");
+	background-size: 100% 100%;
+}
+.c_background_middle {
+	width: 100%;
+	height: 13.1%;
+	background-image: url("images/background/c_background_middle.png");
+	background-size: 100% 100%;
+}
+.c_background_bottom {
+	width: 100%;
+	height: 15.3%;
+	background-image: url("images/background/c_background_botton.png");
+	background-size: 100% 100%;
+}
+.girl {
+	position: absolute;
+	top: -10%;
+	right: 30%;
+	width: 151px;
+	height: 291px;
+	background: url("images/girl.png") -755px -0px no-repeat;
+	z-index: 11;
+}
+.girl-rotate {
+	-webkit-animation-name: girl-rotate;
+	-webkit-animation-duration: 850ms;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-timing-function: step-start;
+	/*forwards的意思是保留在最终状态*/
+	-webkit-animation-fill-mode: forwards;
+
+	-moz-animation-name: girl-rotate;
+	-moz-animation-duration: 850ms;
+	-moz-animation-iteration-count: 1;
+	-moz-animation-timing-function: step-start;
+	-moz-animation-fill-mode: forwards;
+}
+@-webkit-keyframes girl-rotate {
+	0% {
+        background-position: -604px -0px;
+    }
+    16.7% {
+        background-position: -151px -0px;
+    }
+    33.4% {
+        background-position: -906px -0px;
+    }
+    50.1% {
+        background-position: -0px -0px;
+    }
+    66.8% {
+        background-position: -302px -0px;
+    }
+    83.5% {
+        background-position: -453px -0px;
+    }
+    100% {
+        background-position: -604px -0px;
+    }
+}
+@-moz-keyframes girl-rotate {
+    0% {
+        background-position: -604px -0px;
+    }
+    16.7% {
+        background-position: -151px -0px;
+    }
+    33.4% {
+        background-position: -906px -0px;
+    }
+    50.1% {
+        background-position: -0px -0px;
+    }
+    66.8% {
+        background-position: -302px -0px;
+    }
+    83.5% {
+        background-position: -453px -0px;
+    }
+    100% {
+        background-position: -604px -0px;
+    }
+}
+.bridge-bottom {
+	position: absolute;
+	left: 29.5%;
+	top: 76%;
+	width: 41%;
+	height: 24%;
+	overflow: hidden;
+}
+.water{
+	width: 100%;
+	height: 100%;
+}
+.water_1,
+.water_2,
+.water_3,
+.water_4{
+	position: absolute;
+	width: 100%;
+	height: 50%;
+	-webkit-animation-name: shake;
+	-webkit-animation-duration: 40s;
+	-webkit-animation-direction: alternate;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-iteration-count: infinite;
+
+	-moz-animation-name: shake;
+	-moz-animation-duration: 40s;
+	-moz-animation-direction: alternate;
+	-moz-animation-timing-function: linear;
+	-moz-animation-iteration-count: infinite;
+}
+.water_1{
+	top: 13%;
+	left: 35%;
+	width: 131px;
+	height: 15px;
+	background: url("images/water.png") -261px -0px no-repeat;
+}
+.water_2 {
+	top: 38%;
+	left: 45%;
+	width: 161px;
+	height: 9px;
+	background: url("images/water.png") -693px -0px no-repeat;
+}
+.water_3 {
+    width: 261px;
+    height: 25px;
+    top: 55%;
+    left: 15%;
+    background: url("images/water.png") -0px -0px no-repeat;
+}
+
+.water_4 {
+    width: 301px;
+    height: 12px;
+    top: 90%;
+    left: 30%;
+    background: url("images/water.png") -392px -0px no-repeat;
+}
+.stars {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+.stars > li {
+	position: absolute;
+	width: 30px;
+	height: 31px;
+	background: url("images/stars.png") no-repeat;
+	-webkit-animation-name: flash;
+	-webkit-animation-timing-function: ease-in-out;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-direction: alternate;
+
+	-moz-animation-name: flash;
+	-moz-animation-timing-function: ease-in-out;
+	-moz-animation-iteration-count: infinite;
+	-moz-animation-direction: alternate;
+}
+.stars1 {
+    top: 20%;
+    left: 30%;
+    -webkit-animation-duration: 5s;
+    -moz-animation-duration: 5s;
+}
+
+.stars2 {
+    top: 15%;
+    left: 20%;
+    -webkit-animation-duration: 6s;
+    -moz-animation-duration: 6s;
+}
+
+.stars3 {
+    top: 25%;
+    left: 85%;
+    -webkit-animation-duration: 7s;
+    -moz-animation-duration: 7s;
+}
+
+.stars4 {
+    top: 30%;
+    left: 70%;
+    -webkit-animation-duration: 5s;
+    -moz-animation-duration: 5s;
+}
+
+.stars5 {
+    top: 25%;
+    left: 20%;
+    -webkit-animation-duration: 4s;
+    -moz-animation-duration: 4s;
+}
+
+.stars6 {
+    top: 10%;
+    left: 65%;
+     -webkit-animation-duration: 5s;
+    -moz-animation-duration: 5s;
+}
+@-webkit-keyframes flash {
+    0%, 50%, 100% {
+        opacity: 1;
+    }
+    25%,
+    75% {
+        opacity: 0;
+    }
+}
+
+@-moz-keyframes flash {
+    0%, 50%, 100% {
+        opacity: 1;
+    }
+    25%,
+    75% {
+        opacity: 0;
+    }
+}
+@-webkit-keyframes shake {
+	0%, 100% {
+		-webkit-transform: translate3d(0px, 0px, 0px);
+	}
+	10%,
+	30%,
+	50%,
+	70%,
+	90% {
+		-webkit-transform: translate3d(-30px, 0px, 0px);
+	}
+	20%,
+	40%,
+	60%,
+	80% {
+		-webkit-transform: translate3d(30px, 0px, 0px);
+	}
+ }
+ @-moz-keyframes shake {
+	0%, 100% {
+		-webkit-transform: translate3d(0px, 0px, 0px);
+	}
+	10%,
+	30%,
+	50%,
+	70%,
+	90% {
+		-webkit-transform: translate3d(-30px, 0px, 0px);
+	}
+	20%,
+	40%,
+	60%,
+	80% {
+		-webkit-transform: translate3d(30px, 0px, 0px);
+	}
+ }
+ #snowflake {
+ 	position: absolute;
+ 	top: 0;
+ 	left: 0;
+ 	width: 100%;
+ 	height: 100%;
+ 	overflow: hidden;
+ }
+ .snowRoll {
+ 	position: absolute;
+ 	height: 80px;
+ 	opacity: 0;
+ 	-webkit-animation-name: mysnow;
+ 	-webkit-animation-duration: 20s;
+ 	-moz-animation-name: mysnow;
+ 	-webkit-animation-duration: 20s;
+ }
+ @-webkit-keyframes mysnow {
+ 	0%{
+ 		bottom: 100%;
+ 	}
+ 	50% {
+ 		-webkit-transform: rotate(1080deg);
+ 	}
+ 	100% {
+ 		-webkit-transform: rotate(0deg) translate3d(50px, 50px, 50px);
+ 	}
+ }
+ @-moz-keyframes mysnow {
+ 	0%{
+ 		bottom: 100%;
+ 	}
+ 	50% {
+ 		-webkit-transform: rotate(1080deg);
+ 	}
+ 	100% {
+ 		-webkit-transform: rotate(0deg) translate3d(50px, 50px, 50px);
+ 	}
+ }
