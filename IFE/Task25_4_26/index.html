@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Javascript和树(四)</title>
+	<link rel="stylesheet" href="../style.css">
+	<style type="text/css">
+		.container {
+			position: relative;
+			width: 500px;
+			margin: 50px auto;
+		}
+		input{
+			display: inline-block;
+			height: 30px;
+			line-height: 30px;
+			color: darkgreen;
+			font-size: 16px;
+			padding: 0 10px;
+			margin-bottom: 20px;
+			border: 1px solid darkgreen;
+			border-radius: 3px;
+		}
+		ul{
+			padding: 0 30px;
+		}
+		li{
+			position: relative;
+			border-radius: 5px;
+		}
+		li p {
+			width: 200px;
+			height: 30px;
+			line-height: 40px;
+			padding:5px 20px 5px 40px;
+			background: url("../imgs/f2.png") no-repeat 15px center;
+			-webkit-transition: all .6s;
+		}
+		li .clicked {
+			border-radius: 5px;
+			background: url("../imgs/f2.png") no-repeat 5px center #e2e2e2;
+		}
+		a{
+			display: inline-block;
+			width: 150px;
+			height: 40px;
+			line-height: 40px;
+			
+		}
+		p span {
+			float: right;
+			width: 20px;
+			text-align: center;
+			height: 20px;
+			line-height: 20px;
+			color: darkgreen;
+			cursor: pointer;
+			border-radius: 3px;
+			margin-right: 5px;
+		}
+		#swp span:hover{
+			background: darkgreen;
+			color: #fff;
+		}
+		#swp {
+			width: 80px;
+			visibility: hidden;
+		}
+		#dialog{
+			display: none;
+			position: absolute;
+			top: -40px;
+			left: 50%;
+			width: 220px;
+			height: 100px;
+			background: #fff;
+			z-index: 5;
+			font-size: 14px;
+			padding: 5px 10px;
+			color: darkgreen;
+			margin-left: -110px;
+			border: 1px solid darkgreen;
+			border-radius: 5px;
+			box-shadow: 5px 5px  10px #ddd;
+		}
+		#dialog p, #dialog input{
+			margin-bottom: 5px;
+		}
+		#dialog a{
+			display: inline-block;
+			width: 50px;
+			height: 30px;
+			line-height: 30px;
+			text-align: center;
+			color: darkgreen;
+			font-size: 14px;
+			margin-right: 10px;
+			margin-top: 5px;
+			border: 1px solid darkgreen;
+			border-radius: 5px;
+		}
+		#dialog a:hover{
+			background: darkgreen;
+			color: #fff;
+		}
+	</style>
+</head>
+<body>
+	<div class="container" id="container">
+		<input type="text" placeholder="深度搜索，请按回车" id="dinp">
+		<input type="text" placeholder="广度搜索， 请按回车" id="binp">
+		<div id="dialog">
+			<p>请输出要添加的内容</p>
+			<input type="text" id="addCon">
+			<a href="javascript:;" id="sure">确定</a>
+			<a href="javascript:;" id="cancel">取消</a>
+		</div>
+	</div>
+	<script type="text/javascript" src="../common.js"></script>
+	<script type="text/javascript" src="data.js"></script>
+	<script type="text/javascript" src="script.js"></script>
+</body>
+</html>
