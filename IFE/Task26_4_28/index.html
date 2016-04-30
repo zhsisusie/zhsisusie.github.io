@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>行星与飞船(一)</title>
+	<link rel="stylesheet" href="../style.css">
+	<link rel="stylesheet" href="index.css">
+</head>
+<body>
+	<div class="container">
+		<div class="space" id="space">
+			<div id="orbit_4" class="orbit"></div>
+			<div id="orbit_3" class="orbit"></div>
+			<div id="orbit_2" class="orbit"></div>
+			<div id="orbit_1" class="orbit"></div>
+			<div id="star"></div>
+			<div id="commander">
+				<p>控制中心</p>
+				<ul id="ulbtn">
+					<li data-orbit="1">
+						<span>No.1: </span>
+						<div class="btn" data-name="create" id="ts">创建</div>
+						<div class="btn" data-name="start">飞行</div>
+						<div class="btn" data-name="stop">停止</div>
+						<div class="btn" data-name="destory">销毁</div>
+					</li>
+					<li data-orbit="2">
+						<span>No.2: </span>
+						<div class="btn" data-name="create">创建</div>
+						<div class="btn" data-name="start">飞行</div>
+						<div class="btn" data-name="stop">停止</div>
+						<div class="btn" data-name="destory">销毁</div>
+					</li>
+					<li data-orbit="3">
+						<span>No.3: </span>
+						<div class="btn" data-name="create">创建</div>
+						<div class="btn" data-name="start">飞行</div>
+						<div class="btn" data-name="stop">停止</div>
+						<div class="btn" data-name="destory">销毁</div>
+					</li>
+					<li data-orbit="4">
+						<span>No.4: </span>
+						<div class="btn" data-name="create">创建</div>
+						<div class="btn" data-name="start">飞行</div>
+						<div class="btn" data-name="stop">停止</div>
+						<div class="btn" data-name="destory">销毁</div>
+					</li>
+				</ul>
+			</div>
+			<div id="console">
+				<p>日志</p>
+				<ul id="mesWrap">
+	
+				</ul>
+			</div>
+			<!-- <div class="ship" id="ship_1"></div> -->
+		</div>
+	</div>
+	<script type="text/javascript" src="../common.js"></script>
+	<script type="text/javascript" src="Commander.js"></script>
+	<script type="text/javascript" src="spaceship.js"></script>
+	<script type="text/javascript" src="spaceManager.js"></script>
+	<script type="text/javascript" src="main.js"></script>
+	<script type="text/javascript" src="test.js"></script>
+</body>
+</html>
