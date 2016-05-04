@@ -30,12 +30,11 @@
 	}
 	function addClass(element, newClass) {
 		var className = element.className;
-
 		if(!className) {
 			element.className = newClass;
 		}else {
 			if(className.indexOf(newClass) === -1) {
-				className = " " + className + " ";
+				className = className + " ";
 				className += newClass;
 				element.className = className;
 			}
