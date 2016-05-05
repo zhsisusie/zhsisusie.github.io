@@ -49,6 +49,13 @@
 			element.className = className;
 		}
 	}
+	function hasClass(element, cls){
+		var className = element.className;
+		if(className.indexOf(cls) > -1){
+			return true;
+		}
+		return false;
+	}
 	function $(id){
 		return document.getElementById(id);
 	}
