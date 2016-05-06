@@ -105,9 +105,10 @@ SpaceShip.prototype = {
 		}
 	},
 	onCommandRev: function(mes){
-		var self = this;
-		if(mes.id == self.orbit){
-			self[mes.command]();
+		var self = this,
+			message = CodeAdaper.bitToString(mes);
+		if(message.id == self.orbit){
+			self[message.command]();
 		}
 	}
 }
