@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>行星与飞船(一)</title>
+	<link rel="stylesheet" href="../style.css">
+	<link rel="stylesheet" href="index.css">
+</head>
+<body>
+	<div class="container">
+		<div class="space" id="space">
+			<div id="orbit_4" class="orbit"></div>
+			<div id="orbit_3" class="orbit"></div>
+			<div id="orbit_2" class="orbit"></div>
+			<div id="orbit_1" class="orbit"></div>
+			<div id="star"></div>
+			<div id="commander">
+				<p>控制中心</p>
+				<ul id="ulbtn">
+					<li data-orbit="1">
+						<span>No.1: </span>
+						<div class="btn" data-name="create" id="ts">创建</div>
+						<div class="btn" data-name="commandRun">飞行</div>
+						<div class="btn" data-name="commandStop">停止</div>
+						<div class="btn" data-name="commandDestory">销毁</div>
+					</li>
+					<li data-orbit="2">
+						<span>No.2: </span>
+						<div class="btn" data-name="create">创建</div>
+						<div class="btn" data-name="commandRun">飞行</div>
+						<div class="btn" data-name="commandStop">停止</div>
+						<div class="btn" data-name="commandDestory">销毁</div>
+					</li>
+					<li data-orbit="3">
+						<span>No.3: </span>
+						<div class="btn" data-name="create">创建</div>
+						<div class="btn" data-name="commandRun">飞行</div>
+						<div class="btn" data-name="commandStop">停止</div>
+						<div class="btn" data-name="commandDestory">销毁</div>
+					</li>
+					<li data-orbit="4">
+						<span>No.4: </span>
+						<div class="btn" data-name="create">创建</div>
+						<div class="btn" data-name="commandRun">飞行</div>
+						<div class="btn" data-name="commandStop">停止</div>
+						<div class="btn" data-name="commandDestory">销毁</div>
+					</li>
+				</ul>
+			</div>
+			<div id="power">
+				<p>创建飞船性能选择</p>
+				<div>动力系统选择</div>
+				<ul id="peg">
+					<li><input type="radio" name="engine" checked data-type=1><span>前进号（速率30px/s,能耗5%/s）</span></li>
+					<li><input type="radio" name="engine" data-type=2><span>奔腾号（速率50px/s,能耗7%/s）</span></li>
+					<li><input type="radio" name="engine" data-type=3><span>超越号（速率80px/s,能耗9%/s）</span></li>
+				</ul>
+				<div>能源系统选择</div>
+				<ul id="pern">
+					<li><input type="radio" name="energy" checked data-type=1><span>劲量型（补充能源速度2%/s）</span></li>
+					<li><input type="radio" name="energy" data-type=2><span>光能型（补充能源速度3%/s）</span></li>
+					<li><input type="radio" name="energy" data-type=3><span>永久型（补充能源速度4%/s）</span></li>
+				</ul>
+			</div>
+			<div id="console">
+				<p>日志</p>
+				<ul id="mesWrap">
+	
+				</ul>
+			</div>
+			<ul id="screen">
+				<li><span>飞船</span><span>动力系统</span><span>能源系统</span><span>状态</span><span>能量</span>
+				</li>
+
+				<li id="s_1">
+					<span class="s_1">1号</span>
+					<span class="s_1"></span>
+					<span class="s_1"></span>
+					<span class="s_1"></span>
+					<span class="s_1"></span>
+				</li>
+
+				<li id="s_2"><span class="s_2">2号</span>
+				<span class="s_2"></span>
+				<span class="s_2"></span>
+				<span class="s_2"></span>
+				<span class="s_2"></span></li>
+
+				<li id="s_3"><span class="s_3">3号</span>
+				<span class="s_3"></span>
+				<span class="s_3"></span>
+				<span class="s_3"></span>
+				<span class="s_3"></span></li>
+
+				<li id="s_4"><span class="s_4">4号</span>
+				<span class="s_4"></span>
+				<span class="s_4"></span>
+				<span class="s_4"></span>
+				<span class="s_4"></span></li>
+				
+				
+			</ul>
+			
+			<!-- <div class="ship" id="ship_1"></div> -->
+		</div>
+	</div>
+	<script type="text/javascript" src="../common.js"></script>
+	<script type="text/javascript" src="CodeAdapter.js"></script>
+	<script type="text/javascript" src="Dc.js"></script>
+	<script type="text/javascript" src="Mediator.js"></script>
+	<script type="text/javascript" src="Commander.js"></script>
+	<script type="text/javascript" src="spaceship.js"></script>
+	<script type="text/javascript" src="main.js"></script>
+</body>
+</html>

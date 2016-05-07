@@ -1,0 +1,228 @@
+.space {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	background: black;
+}
+#star {
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	left: 50%;
+	top: 50%;
+	background: #ec5d4a;
+	margin-left: -50px;
+	margin-top: -50px;
+	border-radius: 50%;
+}
+.orbit {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	border-radius: 50%;
+	background: black;
+	border: 1px solid #fff;
+}
+#orbit_1{
+	width: 200px;
+	height: 200px;
+	margin-left: -100px;
+	margin-top: -100px;
+}
+#orbit_2{
+	width: 300px;
+	height: 300px;
+	margin-left: -150px;
+	margin-top: -150px;
+}
+#orbit_3{
+	width: 400px;
+	height: 400px;
+	margin-left: -200px;
+	margin-top: -200px;
+}
+#orbit_4{
+	width: 500px;
+	height: 500px;
+	margin-left: -250px;
+	margin-top: -250px;
+}
+#commander {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 320px;
+	background: #fff;
+	padding: 0 10px;
+	text-align: center;
+}
+#commander p, #power p{
+	text-align: center;
+	background: darkblue;
+	color: #fff;
+	font-size: 18px;
+}
+#commander li{
+	border-bottom: 1px solid #eee;
+}
+.container .btn{
+	display: inline-block;
+	width: 50px;
+	height: 25px;
+	line-height: 25px;
+	text-align: center;
+	font-size: 12px;
+	border: 1px solid #eee;
+	border-radius: 3px;
+	box-shadow: 2px 2px 5px #eee;
+	cursor: pointer;
+}
+.container .btn:hover{
+	background: #eee;
+}
+#console{
+	position: absolute;
+	left:0;
+	top: 600px;
+	min-width: 320px;
+	max-height: 300px;
+	overflow-y: auto;
+	overflow-x: auto;
+	background: #fff;
+	padding: 0 10px;
+	text-align: center;
+}
+#console p {
+	background: darkblue;
+	text-align: center;
+	color: #fff;
+	font-size: 18px;
+}
+#console li{
+	text-align: left;
+	font-size: 12px;
+	height: 20px;
+	line-height: 20px;
+	border-bottom: 1px solid #eee;
+	white-space: nowrap;
+}
+#power{
+	position: absolute;
+	left: 0;
+	top: 320px;
+	width: 320px;
+	background: #fff;
+	padding: 0 10px;
+	font-size: 12px;
+}
+#power div{
+	margin: 15px 0 5px;
+	font-size: 14px;
+}
+#power li{
+	margin-bottom: 3px;
+}
+.carrier {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	height: 80px;
+	margin-top: -40px;
+	background: transparent;
+	-webkit-transform-origin: 0 center;
+	transform-origin: 0 center;
+}
+.ship {
+	position: absolute;
+	right: -12px;
+	width: 25px;
+	height: 80px;
+	line-height: 80px;
+	text-align: center;
+	color: white;
+	background: blue;
+	/*-webkit-transform: rotate(90deg);*/
+	border-radius: 10px;
+}
+.ship span {
+	position: absolute;
+	display: inline-block;
+	left: 0;
+	top: 0;
+	font-size: 12px;
+	width: 25px;
+	height: 80px;
+	background: green;
+	border-radius: 10px;
+	transtion: all .6s linear;
+	-webkit-transition: all .6s linear;
+}
+.ship_head_1{
+	position: absolute;
+	right: -40px;
+	top: -20px;
+	height: 15px;
+	font-size: 10px;
+	color: #fff;
+	border-radius: 5px 5px 0 0;
+	background: #ec5d4a;
+	padding: 3px 5px 0;
+}
+.fly {
+	animation: flying 6s linear infinite forwards;
+}
+.fly_low{
+	animaiton-duration: 4s;
+}
+.fly_fast{
+	animation-duration: 2s;
+}
+@-webkit-keyframes flying {
+	0%{
+		-webkit-transform: rotate(0deg);
+	}
+	100%{
+		-webkit-transform: rotate(-360deg);
+	}
+}
+@keyframes flying {
+	0%{
+		transform: rotate(0deg);
+	}
+	100%{
+		transform: rotate(360deg);
+	}
+}
+.stop{
+	-webkit-animation-play-state: paused;
+	animation-play-state: paused;
+}
+#screen{
+	position: absolute;
+	right: 50%;
+	top: 10px;
+	width: 320px;
+	background: #fff;
+	color: black;
+	font-size: 12px;
+	margin-left: -160px;
+}
+#screen li{
+	display: none;
+	text-align: center;
+	border-bottom: 1px solid #ddd;
+	padding: 5px 0;
+}
+#screen li:first-child{
+	display: block;
+	background: darkblue;
+	color: #fff;
+}
+#screen li span{
+	display: inline-block;
+	width: 60px;
+	text-align: center;
+}
+#screen li span:last-child{
+	width: 40px;
+}
