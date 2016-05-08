@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>单个表单项的验证</title>
+	<link rel="stylesheet" href="../style.css">
+	<style type="text/css">
+		input:-webkit-autofill{
+			box-shadow: 0 0 0px 1000px #2390cc inset;
+			color: #fff;
+		}
+
+		.info label{
+			display: inline-block;
+			width: 60px;
+			font-weight: bold;
+			font-size: 24px;
+			margin-right: 10px;	
+		}
+		.info #name{
+			display: inline-block;
+			width: 540px;
+			height: 70px;
+			font-size: 24px;
+			padding: 0 5px;
+			border: 2px solid #ddd;
+			border-radius: 5px;
+		}
+		.info .btn{
+			height: 70px;
+			width: 100px;
+			background: #2f798a;
+			color: #fff;
+			font-size: 24px;
+			cursor: pointer;
+			border:none;
+			border-radius: 5px;
+		}
+		.info .btn:hover{
+			background: #2f7900;
+		}
+		.info #name:focus{
+			border:2px solid red;
+		}
+		.info p{
+			margin: 5px 0 0 75px;
+			font-size: 24px;
+			font-weight: bold;
+			color: #aaa;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="info">
+			<label for="name">名称</label>
+			<input type="text" id="name" autocomplete="off">
+			<input type="button" value="验证" class="btn">
+			<p id="warn">必填，长度为4~16个字符</p>
+		</div>
+	</div>
+	<script type="text/javascript" src="../common.js"></script>
+	<script type="text/javascript">
+		var btn = document.querySelector(".btn"),
+			input = $("name"),
+			pinfo = $("warn"),
+			//验证中文字符
+			rel = /[\u4e00-\u9fa5]/g;
+		addEvent(input, "focus", function(){
+			pinfo.innerText = "必填，长度为4~16个字符";
+			pinfo.style.color = "#aaa";
+			input.style.borderColor = "#ddd";
+		});
+		addEvent(btn, "click", function(){
+			var value = input.value,
+				len = value.length,
+				i = 0,
+				total = len;
+			if(len === 0) {
+				pinfo.innerText = "姓名不能为空";
+				pinfo.style.color = "red";
+				input.style.borderColor = "red";
+				return;
+			}
+
+			for(i=0;i<len;i++){
+				if(value.charCodeAt(i)>255){
+					total++;
+				}
+			}
+			if(total < 4 || total > 16){
+				pinfo.style.color = "red";
+				input.style.borderColor = "red";
+			}else{
+				//#60be42;
+				pinfo.style.color = "green";
+				pinfo.innerText = "名称格式正确";
+				input.style.borderColor = "green";
+
+			}
+
+			
+		})
+	</script>
+</body>
+</html>

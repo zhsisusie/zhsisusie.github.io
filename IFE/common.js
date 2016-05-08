@@ -1,6 +1,4 @@
 
-
-
 	function ajax(url, success, fail){
 		var xhr = null;
 		if(window.XMLHttpRequest) {
