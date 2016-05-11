@@ -1,3 +1,7 @@
+/**
+	我这里的动画用的都是setInterval，发现方块移动有时总是会报错误，
+	这里麻烦的地方在于，判断方块是否还能向前移动，不能使方块移动超出画布的范围
+*/
 define(function(require, exports, module){
 	var common = require("common"),
 		canvas = document.getElementById('canvas'),
@@ -170,7 +174,7 @@ define(function(require, exports, module){
 				break;
 			case "MOV RIG":
 				rect.r = -90;
-				if(rect.x < rectNumber-1){
+				if(rect.x < rectNumber-1 ){
 					anim(time,'x', 1);
 				}else{
 					clearAll();
