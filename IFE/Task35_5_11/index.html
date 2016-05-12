@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>听指令的小方块儿-canvas</title>
+	<link rel="stylesheet" href="../style.css">
+	<style type="text/css">
+		.cdwp{
+			position: relative;
+			padding-left: 50px;
+		}
+		.cdwp select,.cdwp input{
+			height: 33px;
+			width: 200px;
+			padding: 0 5px;
+			border-radius: 3px;
+			border: 1px solid #ababab;
+		}
+		.cdwp a{
+			display: inline-block;
+			height: 30px;
+			line-height: 30px;
+			width: 80px;
+			color: black;
+			text-align: center;
+			border: 1px solid #ababab;
+			border-radius: 3px;
+			box-shadow: 0 0 3px #ababab inset;
+		}
+		.cdwp a:hover{
+			background: #ababab;
+			color: #fff;
+		}
+		.cdwp .refresh{
+
+		}
+		.cdwp .carea{
+			margin-top: 20px;
+			width: 270px;
+		}
+		.cdwp .carea textarea{
+			float: right;
+			background: black;
+			color: green;
+			width: 240px;
+			height: 150px;
+		}
+		.carea .idx-wp{
+			position: relative;
+			float: left;
+			height: 150px;
+			width: 20px;
+			background: #ddd;
+			overflow:hidden;
+		}
+		.carea .idx{
+			/*float: left;*/
+			width: 20px;
+			min-height: 150px;
+			/*height: 150px;*/
+			background: #ddd;
+		}
+		.carea .idx li{
+			height: 15px;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<canvas id="canvas" width="600" height="600"></canvas>
+		<div class="cdwp">
+			<!-- <select name="" class="comd">
+				<option>TRA LEF</option>
+				<option>TRA TOP</option>
+				<option>TRA RIG</option>
+				<option>TRA BOT</option>
+				<option>MOV LEF</option>
+				<option>MOV TOP</option>
+				<option>MOV RIG</option>
+				<option>MOV BOT</option>
+			</select>
+			<input type="text" placeholder="指令执行时间，以秒为单位" class="time"> -->
+			<a href="javascript:;" class="bttn">执行</a>
+			<a href="javascript:;" class="refresh">Refesh</a>
+			<div class="carea clearfix">
+				<div class="idx-wp">
+					<ul class="idx">
+	
+					</ul>
+				</div>
+				
+				<textarea name="" id="" cols="30" rows="10" class="com-wp"></textarea>
+			</div>
+		</div>
+	</div>
+	<script src="../js/seajs/sea.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		seajs.config({
+			alias:{
+				"common": "../share.js"
+			}
+		})
+		seajs.use("../Task35_5_11/index.js");
+	</script>
+</body>
+</html>
